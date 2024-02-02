@@ -12,7 +12,7 @@ class playList {
           int ch = sc.nextInt();
           switch(ch){
             case 1:
-              // onboardCustomer(hm);
+              onboardCustomer(hm);
               System.out.println("User Onboarded");
               break;
 
@@ -23,5 +23,14 @@ class playList {
          }
     }
 
-    
+    public static void onboardCustomer(HashMap<String,ArrayDeque<String>> hm){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Name of the User : ");
+        String name = sc.nextLine();
+        System.out.print("Enter the size of the playlist : ");
+        int size = sc.nextInt();
+        
+        ArrayDeque<String> q = new ArrayDeque<>(size);
+        hm.put(name, q);
+      }
 }
