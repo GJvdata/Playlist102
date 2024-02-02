@@ -15,6 +15,11 @@ class playList {
               onboardCustomer(hm);
               System.out.println("User Onboarded");
               break;
+            
+            case 2:
+              addSongForUser(hm);
+              System.out.println("Song added for provided user");
+              break;
 
               default:
               System.out.println("Exiting!!!!!!!");
@@ -32,5 +37,19 @@ class playList {
         
         ArrayDeque<String> q = new ArrayDeque<>(size);
         hm.put(name, q);
+      }
+
+      public static void addSongForUser(HashMap<String,ArrayDeque<String>> hm){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Name of the User : ");
+        String name = sc.nextLine();
+        System.out.print("Enter Name of the Song : ");
+        String songName = sc.nextLine();
+        ArrayDeque<String> songs = hm.get(name);
+        if(songs==null){
+          System.out.println("User "+name+" do not exist! Please onboard the user first!!");
+        }else{
+        songs.push(songName);
+        }
       }
 }
