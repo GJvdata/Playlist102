@@ -20,6 +20,11 @@ class playList {
               addSongForUser(hm);
               System.out.println("Song added for provided user");
               break;
+            
+            case 3:
+              System.out.println("Displaying user with their songs list");
+              displayUserSongs(hm);
+              break;
 
               default:
               System.out.println("Exiting!!!!!!!");
@@ -51,5 +56,18 @@ class playList {
         }else{
         songs.push(songName);
         }
+      }
+
+      public static void displayUserSongs(HashMap<String,ArrayDeque<String>> hm){
+        System.out.println("User : Songs of playlist-latest to oldest");
+        for (Map.Entry<String,ArrayDeque<String>> mapElement : hm.entrySet()) {
+                String key = mapElement.getKey();
+     
+                Queue<String> value = (mapElement.getValue());
+              //String latestSong = value.peek();
+     
+              
+                System.out.println(key + " : " + value);
+            }
       }
 }
